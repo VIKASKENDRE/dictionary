@@ -8,6 +8,11 @@ def meaning(word):
     word = word.lower()
     if word in data:
         return data[word]
+    elif word.upper() in data:
+        return data[word.upper()]
+    elif word.title() in data:
+        return data[word.title()]
+
 
     elif len(get_close_matches(word, data.keys())) > 0:
         answer = input("Did you mean %s instead? Enter 'y'for yes and 'n' for no. [y/n]: " % get_close_matches(word, data.keys())[0])
